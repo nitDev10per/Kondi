@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="codi.css">
+
+    <title>Kondi</title>
+    <style>
+      
+        h1{
+            /* text-align: center; */
+            border-width: 100px;
+            border-style: solid;
+            color: rgb(171, 72, 236);
+            background-attachment: fixed; 
+            background-color: rgb(0, 0, 0);
+            background-position-y:center;
+            border:10px;
+            border-radius: 4px;
+            border-color: rgb(244, 139, 11);     
+        }
+        .indiv{
+            height: 98%;
+            width: 19.67%;
+
+            float: left;
+            border: black solid 1px;
+            background-color: rgb(241, 140, 15);
+
+            
+        }
+        .outD{
+            margin-bottom: -2.8px;
+            height: 20.1%;
+            border: black solid 1px; 
+            background-color: aliceblue;          
+        }
+
+        .st{
+           margin-top: 50%;
+           transform: rotate(45deg);
+            
+        }
+        .nd{
+            margin-top: -10%;
+            transform: rotate(135deg)
+        }
+        .goti{
+            height: 25px;
+            width: 25px;
+            background-color: aqua; 
+            border:black double 3px;
+            position: absolute;
+            border-radius: 100%;
+            
+        }
+
+    </style>
+</head>
+<body onmousedown="return false" onselectstart="return false">
+    <h1 style="width: fit-content;">Welcome to kondi play</h1>
+    
+    <div id="Gvalu" style="height: 25px; width: 25px; position:fixed; background-color: rgb(237, 192, 12);" ><p style=" margin-top: 22px;">value</p></div>
+    <div id="timer" style="height: 25px; width: 25px; position:fixed; margin-left: 500px; margin-top: -50px; background-color: brown;" ><p style=" margin-top: 22px;">timer</p></div>
+
+    <button id="btn" onclick="Splay()">Start to play</button>
+    <div style="height: 200px; width: 100px; background-color: aqua; border:black dashed 1px; float:left; margin-top: 365px; " >1 
+        <button id="btn1" style="margin-left:50px;" onclick="rndm(1,this.id)">chance</button>  
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div>  
+    </div>
+    <div style="height: 100px; width: 200px; background-color: aqua; border:black dashed 1px; margin-left: 350px; margin-bottom: 5px;">2 
+        <button id="btn2" style="margin-top:50px; margin-left: 120px;" onclick="rndm(2,this.id)">chance</button>  
+        <!-- <div class="kFront" style="float: left;"><div class="kFront2"></div></div>
+        <div class="kback" style="float: left;"><p class="KPra">++++</p></div> -->
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div>  
+    </div>
+    <div style="height: 500px; width: 500px; background-color: aqua; border:black double 5px; margin-left: 105px; margin-right: 205px; margin-bottom: 5px;">
+        <div class="outD">
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+            <div class="indiv"><hr class="st"><hr class="nd"></div>
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+        </div>
+        <div class="outD">
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+            <!-- <div style="height: 20px; width: 0px; background-color: aqua; border:black; position: absolute;"></div> -->
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+        </div>
+        <div class="outD">
+            <div class="indiv"><hr class="st"><hr class="nd"></div>
+            <div class="indiv"></div>
+            <div class="indiv"><hr class="st"><hr class="nd">
+                <div class="goti" id="1b" style="background-color:blue ; transform:translate(35px,0px);"  ></div>
+                <div class="goti" id="2b" style="background-color:blue ; transform:translate(35px,-42px); " ></div>
+                <div class="goti" id="3b" style="background-color:blue ; transform:translate(60px,-20px);" ></div>
+                <div class="goti" id="4b" style="background-color:blue ; transform:translate(15px,-20px);" ></div>
+                <div class="goti" id="1p" style="background-color:rgb(124, 16, 181) ; transform:translate(0px,-40px);" ></div>
+                <div class="goti" id="2p" style="background-color:rgb(124, 16, 181) ; transform:translate(17px,15px);" ></div>
+                <div class="goti" id="3p" style="background-color:rgb(124, 16, 181) ; transform:translate(73px,-3px);" ></div>
+                <div class="goti" id="4p" style="background-color:rgb(124, 16, 181) ; transform:translate(55px,-58px);"></div>
+                <div class="goti" id="1r" style="background-color:rgb(181, 16, 49) ; transform:translate(0px,-20px);" ></div>
+                <div class="goti" id="2r" style="background-color:rgb(181, 16, 49) ; transform:translate(35px,-58px);" ></div>
+                <div class="goti" id="3r" style="background-color:rgb(181, 16, 49) ; transform:translate(73px,-23px);" ></div>
+                <div class="goti" id="4r" style="background-color:rgb(181, 16, 49) ; transform:translate(37px,15px);" ></div>
+                <div class="goti" id="1g" style="background-color:rgb(35, 181, 16) ;"></div>
+                <div class="goti" id="2g" style="background-color:rgb(35, 181, 16) ; transform:translate(15px,-58px);" ></div>
+                <div class="goti" id="3g" style="background-color:rgb(35, 181, 16) ; transform:translate(73px,-43px);" ></div>
+                <div class="goti" id="4g" style="background-color:rgb(35, 181, 16) ; transform:translate(57px,15px);" ></div>
+                </div>
+            <div class="indiv"></div>
+            <div class="indiv"><hr class="st"><hr class="nd"></div>
+        </div>
+        <div class="outD">
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+        </div>
+        <div class="outD">
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+            <div class="indiv"><hr class="st"><hr class="nd"></div>
+            <div class="indiv"></div>
+            <div class="indiv"></div>
+        </div>
+    </div>
+    <div style="height: 100px; width: 200px; background-color: aqua; border:black dashed 1px; margin-left: 350px;">4  
+        <button id="btn4" style="margin-left:150px;" onclick="rndm(4,this.id)">chance</button>  
+        <!-- <div class="kFront"><div class="kFront2"></div></div> -->
+        <!-- <div class="kback"><p class="KPra">++++</p></div> -->
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div>  
+    </div>
+    <div style="height: 200px; width: 100px; background-color: aqua; border:black dashed 1px; margin-top: -565px; margin-left: 620px;">3 
+        <button id="btn3" style="margin-left:50px; " onclick="rndm(3,this.id)">chance</button>  
+        <!-- <div class="kFront"><div class="kFront2"></div></div>
+        <div class="kback"><p class="KPra">++++</p></div> -->
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div> 
+        <div class="kFront" style="position: absolute; transform:translate(0px,0px);"><div class="kFront2"></div></div>
+        <div class="kback" style="position: absolute; transform:translate(0px,0px);"><p class="KPra">++++</p></div>  
+    </div>
+</body>
+<script>
+   // console.log(g1);
+    var g1,g2,g3,g4,g5,g6,g7,g8,g9,g10,g11,g12,g13,g14,g16;
+    var start=false;
+    var rendom;
+    const ratio=100;
+    const kill= [0,0,0,0];                          
+    const tunPnt=[0,0,0,0];
+    const postn=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+    var c=0;
+    var date=0;
+    var d;
+    var count=0;
+    
+    const gid=[['1p','2p','3p','4p'],['1g','2g','3g','4g'],['1b','2b','3b','4b'],['1r','2r','3r','4r']]
+    const arrb=[
+    document.getElementById("1b"),
+    document.getElementById("2b"),
+    document.getElementById("3b"),
+    document.getElementById("4b")
+    ];
+    const arrp=[
+    document.getElementById("1p"),
+    document.getElementById("2p"),
+    document.getElementById("3p"),
+    document.getElementById("4p")
+    ];
+    const arrr=[
+    document.getElementById("1r"),
+    document.getElementById("2r"),
+    document.getElementById("3r"),
+    document.getElementById("4r")
+    ];
+    const arrg=[
+    document.getElementById("1g"),
+    document.getElementById("2g"),
+    document.getElementById("3g"),
+    document.getElementById("4g")
+    ];
+
+    const secMp=new Map;
+         
+
+    const ttTran=new Map();
+         ttTran.set('1g',{x:0,y:0});
+         ttTran.set('2g',{x:0,y:0});
+         ttTran.set('3g',{x:0,y:0});
+         ttTran.set('4g',{x:0,y:0});
+
+         ttTran.set('1p',{x:0,y:0});
+         ttTran.set('2p',{x:0,y:0});
+         ttTran.set('3p',{x:0,y:0});
+         ttTran.set('4p',{x:0,y:0});
+
+         ttTran.set('1b',{x:0,y:0});
+         ttTran.set('2b',{x:0,y:0});
+         ttTran.set('3b',{x:0,y:0});
+         ttTran.set('4b',{x:0,y:0});
+
+         ttTran.set('1r',{x:0,y:0});
+         ttTran.set('2r',{x:0,y:0});
+         ttTran.set('3r',{x:0,y:0});
+         ttTran.set('4r',{x:0,y:0});
+
+        
+
+    const hash1=new Map();
+         hash1.set(1,'0');
+         hash1.set(0,'0');
+         hash1.set(2,'0');
+
+         hash1.set(3,'2');
+         hash1.set(4,'2');
+         hash1.set(5,'2');
+         hash1.set(6,'2');
+
+         hash1.set(7,'6');
+         hash1.set(8,'6');
+         hash1.set(9,'6');
+         hash1.set(10,'6');
+
+         hash1.set(11,'10');
+         hash1.set(12,'10');
+         hash1.set(13,'10');
+         hash1.set(14,'10');
+
+         hash1.set(15,'14');
+
+         hash1.set(16,'15');
+         hash1.set(17,'15');
+         hash1.set(18,'15');
+
+         hash1.set(19,'18');
+         hash1.set(20,'18');
+
+         hash1.set(21,'20');
+         hash1.set(22,'20');
+         
+         hash1.set(23,'22');
+
+         hash1.set(24,'23');
+       //  hash1.set(25,'25');
+        
+    const hash2=new Map();
+         hash2.set(0,['-t','+l','+t','-l']);
+         hash2.set(2,['+l','+t','-l','-t']);
+         hash2.set(6,['+t','-l','-t','+l']);
+         hash2.set(10,['-l','-t','+l','+t']);
+         hash2.set(14,['-t','+l','+t','-l']);
+         hash2.set(15,['+l','+t','-l','-t']);
+         hash2.set(18,['-t','+l','+t','-l']);
+         hash2.set(20,['-l','-t','+l','+t']);
+         hash2.set(22,['+t','-l','-t','+l']);
+         hash2.set(23,['+l','+t','-l','-t']);
+         
+        //  hash2.set(2,['-t','+l','+t','-l']);
+        //  hash2.set(6,['+l','+t','-l','-t']);
+        //  hash2.set(10,['+t','-l','-t','+l']);
+        //  hash2.set(14,['-l','-t','+l','+t']);
+        //  hash2.set(15,['+t','-l','-t','+l']);
+        //  hash2.set(18,['+l','+t','-l','-t']);
+        //  hash2.set(20,['-t','+l','+t','-l']);
+        //  hash2.set(22,['-l','-t','+l','+t']);
+      //   hash2.set(24,['t','l','t','l']);
+    // const cmappos=new Map();
+    //         cmappos.set('1g',{o:0,y:0});
+    //         cmappos.set('2g',{o:-15,:58}); 
+    //         cmappos.set('3g',{o:-73,p:43});
+    //         cmappos.set('4g',{o:-57,p:-15});
+
+    //         cmappos.set('1b',{o:-35,p:0});
+    //         cmappos.set('2b',{o:-35,p:42});
+    //         cmappos.set('3b',{o:-60,p:20});
+    //         cmappos.set('4b',{o:-15,p:20});
+
+    //         cmappos.set('1p',{o:0,p:40});
+    //         cmappos.set('2p',{o:-17,p:-15});
+    //         cmappos.set('3p',{o:-73,p:3});
+    //         cmappos.set('4p',{o:-55,p:58});
+
+    //         cmappos.set('1r',{o:0,p:20}); 
+    //         cmappos.set('2r',{o:-35,p:35});
+    //         cmappos.set('3r',{o:-73,p:23});
+    //         cmappos.set('4r',{o:-37,p:-15});
+
+    const mappos=new Map();
+            mappos.set('1g',{x:0,y:0});
+            mappos.set('2g',{x:-15,y:58}); 
+            mappos.set('3g',{x:-73,y:43});
+            mappos.set('4g',{x:-57,y:-15});
+
+            mappos.set('1b',{x:-35,y:0});
+            mappos.set('2b',{x:-35,y:42});
+            mappos.set('3b',{x:-60,y:20});
+            mappos.set('4b',{x:-15,y:20});
+
+            mappos.set('1p',{x:0,y:40});
+            mappos.set('2p',{x:-17,y:-15});
+            mappos.set('3p',{x:-73,y:3});
+            mappos.set('4p',{x:-55,y:58});
+
+            mappos.set('1r',{x:0,y:20}); 
+            mappos.set('2r',{x:-35,y:58});
+            mappos.set('3r',{x:-73,y:23});
+            mappos.set('4r',{x:-37,y:-15});
+
+    //const mapipos=new Map();
+        //    mapipos.set('1g',{x:0,y:0});
+        //    mapipos.set('2g',{x:0,y:0}); 
+        //    mapipos.set('3g',{x:0,y:0});
+        //    mapipos.set('4g',{x:0,y:0});
+
+        //    mapipos.set('1b',{x:0,y:0});
+        //    mapipos.set('2b',{x:0,y:0});
+        //    mapipos.set('3b',{x:0,y:0});
+        //    mapipos.set('4b',{x:0,y:0});
+
+        //    mapipos.set('1p',{x:0,y:0});
+        //    mapipos.set('2p',{x:0,y:0});
+        //    mapipos.set('3p',{x:0,y:0});
+        //    mapipos.set('4p',{x:0,y:0});
+
+        //    mapipos.set('1r',{x:0,y:0}); 
+        //    mapipos.set('2r',{x:0,y:0});
+        //    mapipos.set('3r',{x:0,y:0});
+        //    mapipos.set('4r',{x:0,y:0});
+
+    //const =mappos;
+   // let mappos=new Map();
+    
+   //const newmap=new Map([...mappos]);
+
+
+
+
+
+ //   let mydiv=document.getElementById('1p');
+   // mydiv.addEventListener('click',alart("hi"));
+
+//    let mydiv = document.getElementById('1p');
+// mydiv.addEventListener('click', function() {
+//     trav(1,"1p"); 
+// });
+    // document.getElementById("btn1").disabled=true;
+    // document.getElementById("btn2").disabled=true;
+    // document.getElementById("btn3").disabled=true;
+    // document.getElementById("btn4").disabled=true;
+
+    
+    
+   // var samex=[35,35,60,15,0,17,73,55,0,35,73,37,0,15,73,57];
+   // var samey=[0,-42,-20,-20,-40,15,-3,-58,-20,-58,-23,15,0,-38,-43,15];
+    function Splay(){
+        //console.log(g1.translateX);
+        initial();
+       // goti("1b",ratio*2,0);
+      
+        
+       setInterval(main,10000);
+         main();
+
+
+
+    // }
+    // function tim(){
+    //     setInterval(main,60000);
+       
+    //     //document.write(date);
+        
+
+    }
+    function main(){
+    stopIn();
+    
+    document.getElementById("btn1").disabled=true;
+    document.getElementById("btn2").disabled=true;
+    document.getElementById("btn3").disabled=true;
+    document.getElementById("btn4").disabled=true;
+       
+        c=(c%4)+1;
+        d=c;
+        
+     //   console.log(c);
+
+        switch(c){
+            case 1: tab("btn1");
+            count+=1
+            break;
+            case 2: tab("btn2");
+            break;
+            case 3: tab("btn3");
+            break;
+            case 4: tab("btn4");
+            
+            break;
+        }
+        
+     //  console.log(c); 
+     //clearInterval(timout);
+    }
+    function tab(id){
+        var element=document.getElementById(id);
+        element.disabled=false;
+        timout();
+        
+
+
+
+    }
+    function timout(){
+        setInterval(timeo,1000)}
+    function timeo(){
+        date=date+1; 
+        
+        document.getElementById("timer").innerHTML=date;
+        if(date==10){
+            stopIn();
+        }
+    }    
+    function stopIn(){
+        clearInterval(timout);
+        date=0;
+    }
+    // Get the div element by its ID
+    //let mydiv=document.getElementById('1p');
+    //mydiv.addEventListener('click',alart("hi"));
+
+    function trav(i,id,j){
+       // removeEventListeners(i);
+       // goti(id,300,300);
+        if(i==c){
+            let oldpos=postn[i-1][j];
+            postn[i-1][j]+=rendom;
+            let newpos=postn[i-1][j];
+            let arr=hash1.get(oldpos);
+            let arr1=hash1.get(newpos);
+            let dirac1=hash2.get(+arr);
+            let dirac2=hash2.get(+arr1);
+
+        if(rendom==8){
+            let npos;
+            let opos=oldpos;
+            if(newpos>15 && kill[i-1]==0){
+                npos=(newpos-15)
+                postn[i-1][j]=npos-1;
+            for(e=1; e<=8-npos; e++){
+                opos+=1
+                arr1=hash1.get(opos);
+                dirac2=hash2.get(+arr1);
+                switch(dirac2[i-1]){
+                    case '+t': goti(id,0,ratio);
+                    ttTranF(0,ratio,id);
+                    break;
+                    case '-t': goti(id,0,-ratio);
+                    ttTranF(0,-ratio,id);
+                    break;
+                    case '+l': goti(id,ratio,0);
+                    ttTranF(ratio,0,id);
+                    break;
+                    case '-l': goti(id,-ratio,0);
+                    ttTranF(-ratio,0,id);
+                    break;    
+                }
+            }
+            opos=0;
+            for(e=1; e<=npos; e++){
+                opos+=1
+                arr1=hash1.get(opos);
+                dirac2=hash2.get(+arr1);
+                switch(dirac2[i-1]){
+                    case '+t': goti(id,0,ratio);
+                    ttTranF(0,ratio,id);
+                    break;
+                    case '-t': goti(id,0,-ratio);
+                    ttTranF(0,-ratio,id);
+                    break;
+                    case '+l': goti(id,ratio,0);
+                    ttTranF(ratio,0,id);
+                    break;
+                    case '-l': goti(id,-ratio,0);
+                    ttTranF(-ratio,0,id);
+                    break;    
+                }
+            }
+            }else{ 
+                npos=oldpos;
+                for(e=1; e<=8; e++){
+                npos+=1;
+                arr1=hash1.get(npos);
+                dirac2=hash2.get(+arr1);
+                    switch(dirac2[i-1]){
+                        case '+t': goti(id,0,ratio);
+                        ttTranF(0,ratio,id);
+                        break;
+                        case '-t': goti(id,0,-ratio);
+                        ttTranF(0,-ratio,id);
+                        break;
+                        case '+l': goti(id,ratio,0);
+                        ttTranF(ratio,0,id);
+                        break;
+                        case '-l': goti(id,-ratio,0);
+                        ttTranF(-ratio,0,id);
+                        break;    
+                    }
+                }
+            }
+        }else if(rendom!=8){
+            if(newpos>15 && kill[i]==0){
+                opos=oldpos;
+                let npos=newpos-15
+                postn[i-1][j]=npos-1;
+            for(e=1; e<=rendom-npos; e++){
+                opos+=1
+                arr1=hash1.get(opos);
+                dirac2=hash2.get(+arr1);
+                switch(dirac2[i-1]){
+                    case '+t': goti(id,0,ratio);
+                    ttTranF(0,ratio,id);
+                    break;
+                    case '-t': goti(id,0,-ratio);
+                    ttTranF(0,-ratio,id);
+                    break;
+                    case '+l': goti(id,ratio,0);
+                    ttTranF(ratio,0,id);
+                    break;
+                    case '-l': goti(id,-ratio,0);
+                    ttTranF(-ratio,0,id);
+                    break;    
+                }
+            }
+            opos=0;
+            for(e=1; e<=npos; e++){
+                opos+=1
+                arr1=hash1.get(opos);
+                dirac2=hash2.get(+arr1);
+                switch(dirac2[i-1]){
+                    case '+t': goti(id,0,ratio);
+                    ttTranF(0,ratio,id);
+                    break;
+                    case '-t': goti(id,0,-ratio);
+                    ttTranF(0,-ratio,id);
+                    break;
+                    case '+l': goti(id,ratio,0);
+                    ttTranF(ratio,0,id);
+                    break;
+                    case '-l': goti(id,-ratio,0);
+                    ttTranF(-ratio,0,id);
+                    break;    
+                }
+            
+            }
+            }else if(hash1.get(oldpos)==hash1.get(newpos)){
+                switch(dirac2[i-1]){
+                    case '+t': goti(id,0,ratio*rendom);
+                    ttTranF(0,ratio*rendom,id);
+                    break;
+                    case '-t': goti(id,0,-ratio*rendom);
+                    ttTranF(0,-ratio*rendom,id);
+                    break;
+                    case '+l': goti(id,ratio*rendom,0);
+                    ttTranF(ratio*rendom,0,id);
+                    break;
+                    case '-l': goti(id,-ratio*rendom,0);
+                    ttTranF(-ratio*rendom,0,id);
+                    break;    
+                }
+
+            }else{
+                switch(dirac1[i-1]){
+                    case '+t':  goti(id,0,ratio*(hash1.get(newpos)-oldpos));
+                    ttTranF(0,ratio*(hash1.get(newpos)-oldpos),id);
+                    break;
+                    case '-t':  goti(id,0,-ratio*(hash1.get(newpos)-oldpos));
+                    ttTranF(0,-ratio*(hash1.get(newpos)-oldpos),id);
+                    break;
+                    case '+l':  goti(id,ratio*(hash1.get(newpos)-oldpos),0);
+                    ttTranF(ratio*(hash1.get(newpos)-oldpos),0,id);
+                    break;
+                    case '-l':  goti(id,-ratio*(hash1.get(newpos)-oldpos),0);
+                    ttTranF(-ratio*(hash1.get(newpos)-oldpos),0,id);
+                    break;   
+                }
+                switch(dirac2[i-1]){
+                    case '+t':  goti(id,0,ratio*(newpos-hash1.get(newpos)));
+                    ttTranF(0,ratio*(newpos-hash1.get(newpos)),id);
+                    break;
+                    case '-t':  goti(id,0,-ratio*(newpos-hash1.get(newpos)));
+                    ttTranF(0,-ratio*(newpos-hash1.get(newpos)),id);
+                    break;
+                    case '+l':  goti(id,ratio*(newpos-hash1.get(newpos)),0);
+                    ttTranF(ratio*(newpos-hash1.get(newpos)),0,id);
+                    break;
+                    case '-l':  goti(id,-ratio*(newpos-hash1.get(newpos)),0);
+                    ttTranF(-ratio*(newpos-hash1.get(newpos)),0,id);
+                    break;   
+                }
+                
+            }
+        
+            // switch(id){
+            //     case g1.id: goti("1b",100,100); 
+            //                 break;
+            //     case g2.id: goti("2b",ratio*2,0); 
+            //                 break;
+            //     case g3.id: goti("3b",ratio*2,0); 
+            //                 break;
+            //     case g4.id: goti("4b",ratio*2,0); 
+            //                 break;
+            //     case g5.id: goti("1p",ratio*2,0); 
+            //                 break;
+            //     case g6.id: goti("2p",ratio*2,0); 
+            //                 break;
+            //     case g7.id: goti("3p",ratio*2,0); 
+            //                 break;
+            //     case g8.id: goti("4p",ratio*2,0); 
+            //                 break;
+            //     case g9.id: goti("1r",ratio*2,0); 
+            //                 break;
+            //     case g10.id: goti("2r",ratio*2,0); 
+            //                 break;
+            //     case g11.id: goti("3r",ratio*2,0); 
+            //                 break;
+            //     case g12.id: goti("4r",ratio*2,0); 
+            //                 break;
+            //     case g13.id: goti("1g",ratio*2,0); 
+            //                 break;
+            //     case g14.id: goti("2g",ratio*2,0); 
+            //                 break;
+            //     case g15.id: goti("3g",ratio*2,0); 
+            //                 break;
+            //     case g16.id: goti("4g",ratio*2,0); 
+            //                 break;                            
+            
+        }
+    }
+    
+        rendom=0;
+        killing(id,i,j);
+        //clearInterval
+    }
+    function killing(id,i,j){
+           
+
+        let Z;
+        let m;
+       // const newmap=new Map([...mappos]);
+
+        for(k=0;k<4;k++){
+            for(l=0;l<4;l++){
+                position1(gid[k][l]);
+            }
+        }
+        m=mappos.get(id);
+       for(k=0;k<4;k++){
+        for(l=0;l<4;l++){
+            if((i-1)==k){continue;}
+            Z=mappos.get(gid[k][l]);
+           // U=secMp.get(gid[k][l]);
+            if(m.x==Z.x && m.y==Z.y){
+                let cheetha=0;
+                for(u=0;u<5;u++){
+                    U=secMp.get(u);
+                    Ux=Math.trunc(U.x);
+                    Uy=Math.trunc(U.y);
+                    Zx=Math.trunc(Z.x);
+                    Zy=Math.trunc(Z.y);               
+                    if(Ux==Zx&&Uy==Zy){ 
+                        cheetha=1;                       
+                    }
+                }
+                if(cheetha==0){
+                    kill[i-1]=1;
+               // c-=1;
+                postn[k][l]=0;
+               // let Y=mapipos.get(gid[i][j]);
+               // let Top=Y.y+'px';
+               // let Left=Y.x+'px';
+
+                let Y=ttTran.get(gid[k][l]);
+                goti(gid[k][l],-Y.x,-Y.y);
+                ttTran.set(gid[k][l],{x:0,y:0});
+                c--;
+
+               // document.getElementById(gid[i][j]).style.left='200px';
+               // document.getElementById(gid[i][j]).style.top='200px';
+               // goti=gn[i];
+                }
+                
+            }
+        }
+       } 
+       mappos.clear();
+
+// Copy the values from the new Map to the original Map
+            mappos.set('1g',{x:0,y:0});
+            mappos.set('2g',{x:-15,y:58}); 
+            mappos.set('3g',{x:-73,y:43});
+            mappos.set('4g',{x:-57,y:-15});
+
+            mappos.set('1b',{x:-35,y:0});
+            mappos.set('2b',{x:-35,y:42});
+            mappos.set('3b',{x:-60,y:20});
+            mappos.set('4b',{x:-15,y:20});
+
+            mappos.set('1p',{x:0,y:40});
+            mappos.set('2p',{x:-17,y:-15});
+            mappos.set('3p',{x:-73,y:3});
+            mappos.set('4p',{x:-55,y:58});
+
+            mappos.set('1r',{x:0,y:20}); 
+            mappos.set('2r',{x:-35,y:58});
+            mappos.set('3r',{x:-73,y:23});
+            mappos.set('4r',{x:-37,y:-15});
+    }
+    function ttTranF(x,y,id){
+        let X=ttTran.get(id);
+        X.x+=x;
+        X.y+=y;
+    }
+    function position1(id){
+        const element = document.getElementById(id);
+        const rect = getPositionRelativeToDocument(element);
+        let X=mappos.get(id);
+        X.x+=rect.left;
+        X.y+=rect.top;
+       // mappos.set(id,{x:X.x,y:X.y});
+    }
+    // function position11(id){
+    //     const element1 = document.getElementById(id);
+    //     const rect1 = getPositionRelativeToDocument(element1);
+    //    // let n=mapipos.get(id);
+    //    // n.x+=rect1.left;
+    //    // n.y+=rect1.top;
+    //     mapipos.set(id,{x:rect1.left,y:rect1.top});
+    // }
+
+    function getPositionRelativeToDocument(element) {
+    const rect = element.getBoundingClientRect();
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    return {
+        left: rect.left + scrollLeft,
+        top: rect.top + scrollTop
+    };
+}
+    function initial(){
+        position1("2g")
+        let Z=mappos.get('2g');
+        secMp.set(4,{x:Z.x,y:Z.y})
+
+        //document.getElementById("1b").style.top="0px";
+         g1=new goti("1b",ratio*2,0);  //b
+         g2=new goti("2b",200,0);
+         g3=new goti("3b",200,0);
+         g4=new goti("4b",200,0);
+
+         g5=new goti("1p",-200,0);  //p 
+         g6=new goti("2p",-200,0);
+         g7=new goti("3p",-200,0);
+         g8=new goti("4p",-200,0);
+
+         g9=new goti("1r",0,200);   //r
+         g10=new goti("2r",0,200);
+         g11=new goti("3r",0,200);
+         g12=new goti("4r",0,200);
+
+         g13=new goti("1g",0,-200);  //g
+         g14=new goti("2g",0,-200);
+         g15=new goti("3g",0,-200);
+         g16=new goti("4g",0,-200);
+
+          for(i=0;i<4;i++){
+             j=0
+             position1(gid[i][j]);
+             Z=mappos.get(gid[i][j]);
+             secMp.set(i,{x:Z.x,y:Z.y});
+        }
+        //secMp=new Map([...mappos]);
+
+   //     document.getElementById("1b").style.transform="translate(100px,100px)";
+       // document.getElementById("1b").style.transform="translateY()";
+      //  document.getElementById("2b").style.transform="translate()";
+       // document.getElementById("2b").style.transform="translateY(100px)";
+        //document.getElementById("3b").style.transform="translateX(400px)";
+       // document.getElementById("3b").style.transform="translateY(400px)";
+        //dacument.getElementById("3b").style.transition="all 5s"
+        //document.getElementById("4b").style.transform="translateX(600px)";
+       // document.getElementById("4b").style.transform="translateY(600px)";
+      //  dacument.getElementById("4b").style.transition="all 5s"
+        // document.getElementById("1p").style.transform="translateX(-200px)";
+        // document.getElementById("2p").style.transform="translateX(-200px)";
+        // document.getElementById("3p").style.transform="translateX(-200px)";
+        // document.getElementById("4p").style.transform="translateX(-200px)";
+        // document.getElementById("1r").style.transform="translatey(200px)";
+        // document.getElementById("2r").style.transform="translatey(200px)";
+        // document.getElementById("3r").style.transform="translatey(200px)";
+        // document.getElementById("4r").style.transform="translatey(200px)";
+        // document.getElementById("1g").style.transform="translatey(-200px)";
+        // document.getElementById("2g").style.transform="translatey(-200px)";
+        // document.getElementById("3g").style.transform="translatey(-200px)";
+        // document.getElementById("4g").style.transform="translatey(-200px)";
+    
+ }
+ function goti(id,translateX,translateY){
+    this.id=id;
+    var element = document.getElementById(id);
+    var currentTransform = element.style.transform; // Get the current transform value
+
+// Perform arithmetic operations
+   this.translateX = translateX; // For example, add 100 pixels to the X-axis
+   this.translateY = translateY; // Add 50 pixels to the Y-axis
+
+// Update the transform property by incorporating the arithmetic operations
+   element.style.transform = `${currentTransform} translate(${translateX}px, ${translateY}px)`;
+ }
+function rndm(i,id){
+    document.getElementById(id).disabled=true;
+   
+    var num=Math.floor( Math.random()*5)+1;
+    
+    (num==5)? rendom=8 : rendom=num;
+    document.getElementById("Gvalu").innerHTML=rendom;
+ //   rendom/=count;
+
+    attachEventListeners(i);
+
+    //goti click functionality
+    // switch(i){
+    //             case 1: arrp[0].addEventListener('click', function() { trav(i,this.id,0);});
+    //                     arrp[1].addEventListener('click', function() { trav(i,this.id,1);});
+    //                     arrp[2].addEventListener('click', function() {trav(i,this.id,2);});
+    //                     arrp[3].addEventListener('click', function() {trav(i,this.id,3);});
+    //                         break;
+    //             case 2: arrg[0].addEventListener('click', function() {trav(i,this.id,0);});
+    //                     arrg[1].addEventListener('click', function() {trav(i,this.id,1);});
+    //                     arrg[2].addEventListener('click', function() {trav(i,this.id,2);});
+    //                     arrg[3].addEventListener('click', function() {trav(i,this.id,3);}); 
+    //                         break;
+    //             case 3: arrb[0].addEventListener('click', function() {trav(i,this.id,0);});
+    //                     arrb[1].addEventListener('click', function() {trav(i,this.id,1);});
+    //                     arrb[2].addEventListener('click', function() {trav(i,this.id,2);});
+    //                     arrb[3].addEventListener('click', function() {trav(i,this.id,3);});
+    //                         break;
+    //             case 4: arrr[0].addEventListener('click', function() {trav(i,this.id,0);});
+    //                     arrr[1].addEventListener('click', function() {trav(i,this.id,1);});
+    //                     arrr[2].addEventListener('click', function() {trav(i,this.id,2);});
+    //                     arrr[3].addEventListener('click', function() {trav(i,this.id,3);});
+    //                         break;
+                
+    //         }
+  
+   
+  // removeEventListeners(i);
+}
+function removeEventListeners(i) {
+    switch (i) {
+        case 1: arrp[0].removeEventListener('click', function() { trav(i,this.id,0);});
+                        arrp[1].removeEventListener('click', function() { trav(i,this.id,1);});
+                        arrp[2].removeEventListener('click', function() {trav(i,this.id,2);});
+                        arrp[3].removeEventListener('click', function() {trav(i,this.id,3);});
+                            break;
+        case 2: arrg[0].removeEventListener('click', function() {trav(i,this.id,0);});
+                        arrg[1].removeEventListener('click', function() {trav(i,this.id,1);});
+                        arrg[2].remveEventListener('click', function() {trav(i,this.id,2);});
+                        arrg[3].removeEventListener('click', function() {trav(i,this.id,3);}); 
+                            break;
+        case 3: arrb[0].removeEventListener('click', function() {trav(i,this.id,0);});
+                        arrb[1].removeEventListener('click', function() {trav(i,this.id,1);});
+                        arrb[2].removeEventListener('click', function() {trav(i,this.id,2);});
+                        arrb[3].removeEventListener('click', function() {trav(i,this.id,3);});
+                            break;
+        case 4: arrr[0].removeEventListener('click', function() {trav(i,this.id,0);});
+                        arrr[1].removeEventListener('click', function() {trav(i,this.id,1);});
+                        arrr[2].removeEventListener('click', function() {trav(i,this.id,2);});
+                        arrr[3].removeEventListener('click', function() {trav(i,this.id,3);});
+                            break;
+       
+    }
+}
+// function removeEventListeners(i) {
+//     switch (i) {
+//         case 1:
+//             arrp.forEach(elem => removeClickListener(elem));
+//             break;
+//         case 2:
+//             arrg.forEach(elem => removeClickListener(elem));
+//             break;
+//         case 3:
+//             arrb.forEach(elem => removeClickListener(elem));
+//             break;
+//         case 4:
+//             arrr.forEach(elem => removeClickListener(elem));
+//             break;
+//     }
+// }
+
+// function attachEventListeners(i) {
+//     switch (i) {
+//         case 1: arrp[0].addEventListener('click', function() { trav(i,this.id,0);});
+//                         arrp[1].addEventListener('click', function() { trav(i,this.id,1);});
+//                         arrp[2].addEventListener('click', function() {trav(i,this.id,2);});
+//                         arrp[3].addEventListener('click', function() {trav(i,this.id,3);});
+//                             break;
+//        case 2: arrg[0].addEventListener('click', function() {trav(i,this.id,0);});
+//                         arrg[1].addEventListener('click', function() {trav(i,this.id,1);});
+//                         arrg[2].addEventListener('click', function() {trav(i,this.id,2);});
+//                         arrg[3].addEventListener('click', function() {trav(i,this.id,3);}); 
+//                             break;
+//         case 3: arrb[0].addEventListener('click', function() {trav(i,this.id,0);});
+//                         arrb[1].addEventListener('click', function() {trav(i,this.id,1);});
+//                         arrb[2].addEventListener('click', function() {trav(i,this.id,2);});
+//                         arrb[3].addEventListener('click', function() {trav(i,this.id,3);});
+//                             break;
+//         case 4: arrr[0].addEventListener('click', function() {trav(i,this.id,0);});
+//                         arrr[1].addEventListener('click', function() {trav(i,this.id,1);});
+//                         arrr[2].addEventListener('click', function() {trav(i,this.id,2);});
+//                         arrr[3].addEventListener('click', function() {trav(i,this.id,3);});
+//                             break;
+       
+//     }
+// }
+
+function attachEventListeners(i) {
+    switch (i) {
+        case 1: arrp[0].onclick=()=>{ trav(i,'1p',0);};
+                arrp[1].onclick=() => { trav(i,'2p',1);};
+                arrp[2].onclick=()=>{trav(i,'3p',2);};
+                arrp[3].onclick=()=>{trav(i,'4p',3);};
+                     break;
+       case 2: arrg[0].onclick=()=>{trav(i,'1g',0);};
+                        arrg[1].onclick=()=>{trav(i,'2g',1);};
+                        arrg[2].onclick=()=>{trav(i,'3g',2);};
+                        arrg[3].onclick=()=>{trav(i,'4g',3);};
+                            break;
+        case 3: arrb[0].onclick=()=>{trav(i,'1b',0);};
+                        arrb[1].onclick=()=>{trav(i,'2b',1);};
+                        arrb[2].onclick=()=>{trav(i,'3b',2);};
+                        arrb[3].onclick=()=>{trav(i,'4b',3);};
+                            break;
+        case 4: arrr[0].onclick=()=>{trav(i,'1r',0);};
+                        arrr[1].onclick=()=>{trav(i,'2r',1);};
+                        arrr[2].onclick=()=>{trav(i,'3r',2);};
+                        arrr[3].onclick=()=>{trav(i,'4r',3);};
+                            break;
+       
+    }
+}
+
+
+</script>
+
+  
+</html>
+<!-- <div style="height: 20px; width: 20px; background-color: aqua; border:black double 5px;"></div> -->
