@@ -184,6 +184,12 @@
     var date=0;
     var d;
     var count=0;
+
+    document.getElementById("btn1").disabled=true;
+    document.getElementById("btn2").disabled=true;
+    document.getElementById("btn3").disabled=true;
+    document.getElementById("btn4").disabled=true;
+       
     
     const gid=[['1p','2p','3p','4p'],['1g','2g','3g','4g'],['1b','2b','3b','4b'],['1r','2r','3r','4r']]
     const arrb=[
@@ -388,7 +394,13 @@
         initial();
        // goti("1b",ratio*2,0);
       
-        
+       document.getElementById("btn").disabled=true;
+       document.getElementById("btn1").disabled=false;
+    document.getElementById("btn2").disabled=false;
+    document.getElementById("btn3").disabled=false;
+    document.getElementById("btn4").disabled=false;
+       
+
        setInterval(main,10000);
          main();
 
